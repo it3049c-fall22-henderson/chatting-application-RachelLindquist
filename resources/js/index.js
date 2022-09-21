@@ -64,7 +64,7 @@ function sendMessages(username, text) {
       timestamp: new Date()
   }
 
-  fetch (serverURL, {
+  fetch (messagesURL, {
       method: `POST`, 
       headers: {
           'Content-Type': 'application/json'
