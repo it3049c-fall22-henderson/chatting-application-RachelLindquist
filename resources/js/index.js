@@ -19,9 +19,9 @@ nameSave.addEventListener("click", function(e){
     e.preventDefault();
     const username = nameInput.value;
     localStorage.setItem('username', JSON.stringify(username));
-    chatBox.classList.add('d-none');
-    myMessage.classList.add('d-none');
-    sendButton.classList.add('d-none');
+    chatBox.classList.remove('d-none');
+    myMessage.classList.remove('d-none');
+    sendButton.classList.remove('d-none');
 });
 
 function fetchMessages() {
