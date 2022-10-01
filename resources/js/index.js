@@ -10,9 +10,11 @@ const serverURL = "https://it3049c-chat-application.herokuapp.com"
 const messagesURL = "https://it3049c-chat-application.herokuapp.com/messages"
 
 //Disable the message input until a name is provided and saved to the localStorage.
-chatBox.classList.add('d-none');
-myMessage.classList.add('d-none');
-sendButton.classList.add('d-none');
+if (!localStorage.getItem('username')){
+    chatBox.classList.add('d-none');
+    myMessage.classList.add('d-none');
+    sendButton.classList.add('d-none');
+}
 
 //Allow users to modify their saved name.
 nameSave.addEventListener("click", function(e){
