@@ -1,12 +1,28 @@
 const MILLISECONDS_IN_TEN_SECONDS = 10000;
 
 const nameInput = document.getElementById("my-name-input");
+const nameSave = document.getElementById("save-name");
 const myMessage = document.getElementById("my-message");
 const sendButton = document.getElementById("send-button");
 const chatBox = document.getElementById("chat");
 
 const serverURL = "https://it3049c-chat-application.herokuapp.com"
 const messagesURL = "https://it3049c-chat-application.herokuapp.com/messages"
+
+//Disable the message input until a name is provided and saved to the localStorage.
+chatBox.classList.add('d-none');
+myMessage.classList.add('d-none');
+sendButton.classList.add('d-none');
+
+//Allow users to modify their saved name.
+nameSave.addEventListener("click", function(e){
+    e.preventDefault();
+    const username = nameInput.value;
+    localStorage.setItem('username', JSON.stringify(username));
+    chatBox.classList.add('d-none');
+    myMessage.classList.add('d-none');
+    sendButton.classList.add('d-none');
+});
 
 function fetchMessages() {
   return fetch(messagesURL).then( response => response.json())
