@@ -13,7 +13,12 @@ const messagesURL = "https://it3049c-chat-application.herokuapp.com/messages"
 if (!localStorage.getItem('username')){
     chatBox.classList.add('d-none');
     myMessage.classList.add('d-none');
-    sendButton.classList.add('d-none');
+    sendButton.classList.add('d-none');   
+} else {
+    nameInput.placeholder = JSON.parse(localStorage.getItem('username'))
+    chatBox.classList.remove('d-none');
+    myMessage.classList.remove('d-none');
+    sendButton.classList.remove('d-none');
 }
 
 //Allow users to modify their saved name.
@@ -21,9 +26,6 @@ nameSave.addEventListener("click", function(e){
     e.preventDefault();
     const username = nameInput.value;
     localStorage.setItem('username', JSON.stringify(username));
-    chatBox.classList.remove('d-none');
-    myMessage.classList.remove('d-none');
-    sendButton.classList.remove('d-none');
 });
 
 function fetchMessages() {
